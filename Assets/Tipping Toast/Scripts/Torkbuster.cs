@@ -12,6 +12,5 @@ public class Torkbuster : MonoBehaviour
     {
         Vector3 rotation = new Vector3(-rpm * 6f * Time.deltaTime, 0f, 0f);
         transform.Rotate(rotation);
-
     }
 }
