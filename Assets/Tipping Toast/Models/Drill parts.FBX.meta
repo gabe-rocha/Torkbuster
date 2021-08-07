@@ -13,12 +13,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal_ChromeFast
-    second: {fileID: 2100000, guid: d99f40a29ba27bf4587e2358ce948036, type: 2}
+    second: {fileID: 2100000, guid: 72dc4af82762ed7479dd1a96a3ab1a9f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal_ChromeYELLOW
-    second: {fileID: 2100000, guid: cc1a3add8b7ca2d4a8f1903e2e0e910c, type: 2}
+    second: {fileID: 2100000, guid: 72dc4af82762ed7479dd1a96a3ab1a9f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

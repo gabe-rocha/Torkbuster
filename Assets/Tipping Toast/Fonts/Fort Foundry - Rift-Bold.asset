@@ -55,9 +55,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Fort Foundry - Rift-Bold
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1378450718
   material: {fileID: -5918799128259013941}
-  materialHashCode: 0
+  materialHashCode: -714244610
   m_Version: 1.1.0
   m_SourceFontFileGUID: 530243f41ed0761448ab3b095d981192
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 530243f41ed0761448ab3b095d981192, type: 3}
