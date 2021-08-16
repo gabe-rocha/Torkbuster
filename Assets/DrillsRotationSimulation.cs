@@ -59,6 +59,7 @@ public class DrillsRotationSimulation : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = -1; //This allows the browser to adjust the frame rate for the smoothest animation in the browser’s render loop, and might produce better results than Unity trying to do its own main loop timing to match a target frame rate.
         
         targetPosUp = Vector3.up * vibrationAmplitude;
         targetPosDown = -1 * Vector3.up * vibrationAmplitude;
@@ -292,7 +293,7 @@ public class DrillsRotationSimulation : MonoBehaviour
 
     private void IncreaseTorqueAndVibeDueToShock(){
         if(currentTorque < maxRPM * rpmToTorqueFactor){
-            currentTorque += torqueIncreaseWithShock;
+            currentTorque += isTorkbusterInstalled ? torqueIncreaseWithShock * 0.7f : torqueIncreaseWithShock;
             // currentRPM = Mathf.Clamp(currentRPM, minRPM, maxRPM);
             // zRotationEulersPerSecond = 360f * currentTorque / 60f;
 
@@ -460,8 +461,20 @@ public class DrillsRotationSimulation : MonoBehaviour
 
     private void UpdateTorqueGauge(){
         // var defaultRotationZ = currentRPM * rpmToGaugeArrowRotationfactor;
-        torqueGaugeArrow.localRotation = Quaternion.Euler(0f,0f, currentTorque * rpmToGaugeArrowRotationfactor + Random.Range(-currentTorque/100f, currentTorque/100f));
-        torqueGauge.color = minMaxGaugeColor.Evaluate(currentRPM / maxRPM);
+        if(isTorkbusterInstalled){
+            torqueGaugeArrow.localRotation = Quaternion.Euler(0f,0f, currentTorque * rpmToGaugeArrowRotationfactor + Random.Range(-currentTorque/100f, currentTorque/100f));
+        }
+        else{
+            torqueGaugeArrow.localRotation = Quaternion.Euler(0f,0f, currentTorque * rpmToGaugeArrowRotationfactor + Random.Range(-currentTorque/50f, currentTorque/50f));
+        }
+
+        if(isTorkbusterInstalled){
+            torqueGauge.color = minMaxGaugeColor.Evaluate(currentRPM / maxRPM * 0.9f);
+        }
+        else{
+            torqueGauge.color = minMaxGaugeColor.Evaluate(currentRPM / maxRPM);
+        }
+        
     }
 
     private void UpdateUI(){
